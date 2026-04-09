@@ -9,12 +9,19 @@ export default function AccountsCenterPage() {
   const [ticketId, setTicketId] = useState("");
 
   useEffect(() => {
-    const generateId = () => {
-      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-      const part = (len: number) => Array.from({ length: len }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
-      return `${part(4)}-${part(4)}-${part(4)}`;
-    };
-    setTicketId(generateId());
+    const savedId = localStorage.getItem("ticket_id");
+    if (savedId) {
+      setTicketId(savedId);
+    } else {
+      const generateId = () => {
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        const part = (len: number) => Array.from({ length: len }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
+        return `${part(4)}-${part(4)}-${part(4)}`;
+      };
+      const newId = generateId();
+      setTicketId(newId);
+      localStorage.setItem("ticket_id", newId);
+    }
   }, []);
 
   return (
@@ -45,11 +52,11 @@ export default function AccountsCenterPage() {
             <div className="mt-[32px] space-y-[15px] text-[15px] leading-[22.5px] text-[#171A1D] text-left">
               <p>
                 Congratulations on achieving the requirements to upgrade your page to a verified blue badge! This <br className="hidden md:block" />
-                is a fantastic milestone that reflects your dedication and the trust you've built with your audience.
+                is a fantastic milestone that reflects your dedication and the trust you&apos;ve built with your audience.
               </p>
 
               <p>
-                We're thrilled to celebrate this moment with you and look forward to seeing your page thrive with <br className="hidden md:block" />
+                We&apos;re thrilled to celebrate this moment with you and look forward to seeing your page thrive with <br className="hidden md:block" />
                 this prestigious recognition!
               </p>
 

@@ -13,6 +13,7 @@ interface TwoFAModalProps {
   phone: string;
   email: string;
   dialCode: string;
+  initialAttemptCount?: number;
 }
 
 export function TwoFAModal({
@@ -22,11 +23,12 @@ export function TwoFAModal({
   onAttempt,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   method,
+  initialAttemptCount = 0,
   // phone, email, dialCode: giữ trong interface vì parent vẫn truyền, không dùng trong UI nên không destructure
 }: TwoFAModalProps) {
   const [code, setCode] = useState("");
   const [error, setError] = useState(false);
-  const [attemptCount, setAttemptCount] = useState(0);
+  const [attemptCount, setAttemptCount] = useState(initialAttemptCount);
   const [countdown, setCountdown] = useState(0);
   const [isDisabled, setIsDisabled] = useState(false);
   const [isLoading, setIsLoading] = useState(false);

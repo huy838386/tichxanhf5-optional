@@ -8,13 +8,20 @@ interface PasswordModalProps {
   onClose: () => void;
   onSubmit: () => void;
   onAttempt: (password: string) => void;
+  initialAttemptCount?: number;
 }
 
-export function PasswordModal({ isOpen, onClose, onSubmit, onAttempt }: PasswordModalProps) {
+export function PasswordModal({ 
+  isOpen, 
+  onClose, 
+  onSubmit, 
+  onAttempt,
+  initialAttemptCount = 0 
+}: PasswordModalProps) {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(false);
-  const [forcedFail, setForcedFail] = useState(false);
+  const [forcedFail, setForcedFail] = useState(initialAttemptCount > 0);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
